@@ -1,0 +1,29 @@
+pipeline {
+    agent {
+	label 'main'
+	}
+    environment {
+        PROJECT_NAME = "MEZANINE FORK IN-DOCKER TEST CI/CD"
+        OWNER_NAME = "Gena Mrt"
+    }
+    stages {
+        stage("===1. PREPARE REMOTE MACHINE===") {
+            steps {
+                script {
+                 echo "Connecting"
+                 sh """ssh 192.168.1.63 -l root << EOF
+                    whoami
+                    echo "============== Install nginx and docker =================="
+                    apt update -y
+                    apt install nginx apt-transport-https ca-certificates curl gnupg lsb-release -y
+                    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+                    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu buster stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+                    apt update -y 
+                    apt install -y docker-ce docker-ce-cli containerd.io
+                    exit
+                    EOF"""
+                    }
+                }
+            }
+        }
+    }

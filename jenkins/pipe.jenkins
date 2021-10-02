@@ -33,7 +33,7 @@ pipeline {
 	 	steps {
 			script {
 			echo "---Prepare Test Dir on Remote Machine---"
-			sh "scp /var/lib/jenkins/workspace/Mezanine/ root@192.168.1.63:/root/mezatest/"
+			sh "scp -r /var/lib/jenkins/workspace/Mezanine/ root@192.168.1.63:/root/mezatest/"
 			echo "---Prepare Pytest on Remote Machine---"
 			sh """ssh 192.168.1.63 -l root << EOF
 			apt install python3-pip

@@ -10,6 +10,8 @@ pipeline {
         stage("===1. PREPARE REMOTE MACHINE===") {
             steps {
                 script {
+		 echo "Copy config"
+		 sh "scp ./nginxconf/mezanine.conf root@192.168.1.63:/etc/nginx/conf.d/"
                  echo "Connecting"
                  sh """ssh 192.168.1.63 -l root << EOF
                     whoami

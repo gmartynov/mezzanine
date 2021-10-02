@@ -36,7 +36,7 @@ pipeline {
 			sh "scp -r /var/lib/jenkins/workspace/Mezanine/ root@192.168.1.63:/root/mezatest/"
 			echo "---Prepare Pytest on Remote Machine---"
 			sh """ssh 192.168.1.63 -l root << EOF
-			apt install python3-pip
+			apt install -y python3-pip
 			pip3 install pytest==3.3.2
 			echo "---Running pytest---"
 			pytest-3 /root/meazatest/tests/conftest.py

@@ -10,8 +10,7 @@ pipeline {
         stage("===1. PREPARE REMOTE MACHINE===") {
             steps {
                 script {
-		 echo "---#stage0. git clone to workspace - should pass before 1st by default---"
-		 echo "---STAGE 1 COMPELETED AND MARKED AS ###---"
+		 echo "---#stage0. git clone to workspace - should pass before 1st by default--- and ---STAGE 1 COMPELETED AND MARKED AS ###---"
 #		 echo "---Copy config---"
 #		 sh "scp ./nginxconf/mezanine.conf root@192.168.1.63:/etc/nginx/conf.d/"
 #                echo "---Connecting---"

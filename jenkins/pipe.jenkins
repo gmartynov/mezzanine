@@ -1,3 +1,5 @@
+#STAGE 0. git clone to workspace
+
 pipeline {
     agent {
 	label 'main'
@@ -6,7 +8,6 @@ pipeline {
         PROJECT_NAME = "MEZANINE FORK IN-DOCKER TEST CI/CD"
         OWNER_NAME = "Gena Mrt"
 	}
-#STAGE 0. git clone to workspace
     stages {
         stage("===1. PREPARE REMOTE MACHINE===") {
             steps {

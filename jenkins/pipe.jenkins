@@ -38,7 +38,8 @@ pipeline {
 			sh """ssh 192.168.1.63 -l root << EOF
 			apt install -y python3-pip python3-pytest
 			echo "---Running pytest---"
-			pytest-3 /root/mezatest/Mezanine/tests/conftest.py
+			echo "---pytest-3 /root/mezatest/Mezanine/tests/conftest.py--- UNTIL ITS NOT WORKING, RUNNING JUST DIR LISTING"
+			ls -la /root/mezatest/Mezanine/tests
 			exit
 			EOF"""
 			}

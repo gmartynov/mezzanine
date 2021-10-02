@@ -29,7 +29,7 @@ pipeline {
                     }
                 }
             }
-	 stage("===2. CODE AUTOTEST===" {
+	 stage("===2. CODE AUTOTEST===") {
 	 	steps {
 			script {
 			echo "---Prepare Test Dir on Remote Machine---"

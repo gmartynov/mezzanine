@@ -10,20 +10,21 @@ pipeline {
         stage("===1. PREPARE REMOTE MACHINE===") {
             steps {
                 script {
-		 echo "Copy config"
-		 sh "scp ./nginxconf/mezanine.conf root@192.168.1.63:/etc/nginx/conf.d/"
-                 echo "Connecting"
-                 sh """ssh 192.168.1.63 -l root << EOF
-                    whoami
-                    echo "============== Install nginx and docker =================="
-                    apt update -y
-                    apt install nginx apt-transport-https ca-certificates curl gnupg lsb-release -y
-                    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-                    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu buster stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-                    apt update -y 
-                    apt install -y docker-ce docker-ce-cli containerd.io
-                    exit
-                    EOF"""
+		 echo "STAGE COMPELETED AND MARKED AS ###"
+#		 echo "Copy config"
+#		 sh "scp ./nginxconf/mezanine.conf root@192.168.1.63:/etc/nginx/conf.d/"
+#                echo "Connecting"
+#                 sh """ssh 192.168.1.63 -l root << EOF
+#                    whoami
+#                    echo "============== Install nginx and docker =================="
+#                    apt update -y
+#                    apt install nginx apt-transport-https ca-certificates curl gnupg lsb-release -y
+#                    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+#                    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu buster stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+#                    apt update -y 
+#                    apt install -y docker-ce docker-ce-cli containerd.io
+#                    exit
+#                    EOF"""
                     }
                 }
             }
